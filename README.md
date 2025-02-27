@@ -29,7 +29,7 @@ uniformly distributed.
 
 Picking the median of three elements in the dataset will up the chances of
 chosing a good pivot. This is because these probabilities compound. The probability
-of at least on of the elements chosen being a good pivot is $1 - (0.5 * 0.5 * 0.5) = 87.5%$.
+of at least on of the elements chosen being a good pivot is $1 - (0.5 * 0.5 * 0.5) = 87.5$%.
 The reason we choose the median of the three of these elements is because it gives
 us the best chance of chosing the least extreme value of the three. Chosing the least
 extreme of the three is critical because it will give us the highest chance of chosing
