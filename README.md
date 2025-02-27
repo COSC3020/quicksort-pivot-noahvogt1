@@ -27,15 +27,38 @@ chance of being a good pivot. This is due to the assumption that the array is
 uniformly distributed.
 
 
-Picking the median of three elements in the dataset will up the chances of
-chosing a good pivot. This is because these probabilities compound. The probability
-of at least on of the elements chosen being a good pivot is $1 - (0.5 * 0.5 * 0.5) = 87.5$%.
-The reason we choose the median of the three of these elements is because it gives
-us the best chance of chosing the least extreme value of the three. Chosing the least
-extreme of the three is critical because it will give us the highest chance of chosing
-the one pivot that is good.
+We will start by showing the different cases in which a good or bad pivot would arise:
+
+3 Good, 0 Bad (Can only happen once)
+
+2 Good, 1 Bad (Can happen 3 times)
+
+1 Good, 2 Bad (Can happen 3 times)
+
+0 Good, 3 Bad (Can only happen once)
 
 
-Disclaimer: This is not guarenteed however. It is all probabalistic, there is still a chance
-that you get a bad pivot. However, using the median of three method provides a 37.5% boost in
-chances of getting a good pivot.
+For the 3 Good, 0 Bad it will always result in a good pivot. 2 Good, 1 Bad will also always
+return a good pivot because you take the median element and since there are two good elements,
+taking the median one will always be a good pivot. Alternatively, the 0 Good, 3 Bad will always
+return bad pivots.
+
+
+As for the 1 Good, 2 Bad this has four different permutations because order matters, L-R-M will
+represent the quartiles:
+
+2-1-0  This would result in a bad pivot
+1-1-1  This would result in a good pivot
+1-1-1 (order matters) Also results in a good pivot
+0-1-2  This would result in a bad pivot
+
+Therefore, the 1 Good, 2 Bad would result in a 50% chance of having a good pivot.
+
+
+So we have $(1/8)*1 + (3/8)*3 + (3/8)*0.5 + (1/8)*0 = 68.75$%.
+
+This means the median of three will give an 18.75% higher chance of choosing a good pivot than
+you would from picking a random pivot.
+
+
+
